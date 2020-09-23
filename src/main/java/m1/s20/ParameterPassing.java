@@ -74,6 +74,11 @@ public class ParameterPassing {
         int other = 12;
         other = increase(other);
         System.out.println(other);
+        
+        //alternativa dell'esempio precedente
+        int[] buffer = { other };
+        reference(buffer);
+        System.out.println(buffer[0]);
     }
     
     static int increase(int value) {

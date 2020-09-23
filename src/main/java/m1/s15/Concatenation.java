@@ -15,6 +15,8 @@ public class Concatenation {
         s += 3;
         // s = s + 3;
         System.out.println(s);
+        
+        f(s,99,"ciao");
     }
 
     static void f(String a, int b, String c) {

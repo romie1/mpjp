@@ -15,7 +15,7 @@ public class Variable {
         // Java 10 inferred type
         var bValue = 42;
         var bName = "Tom";
-
+                
         System.out.println(bName);
         System.out.println(bValue);
     }

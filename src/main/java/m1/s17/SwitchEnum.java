@@ -7,6 +7,9 @@ public class SwitchEnum {
         // ...
 
         switch (day) {
+        case MONDAY:
+        	System.out.println("Oh no! It's monday!");
+        	break;
         case SATURDAY:
             System.out.println("No alarm clock today");
             break;
@@ -14,5 +17,6 @@ public class SwitchEnum {
             System.out.println("Ready for a new week?");
             break;
         }
+      
     }
 }

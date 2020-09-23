@@ -10,6 +10,8 @@ public class MoreStrings {
 
         String t = "hello";
         System.out.println(t);
+        
+       System.out.println(" " + t.repeat(3));
 
         StringBuilder sb = new StringBuilder("hello");
         System.out.println(sb);

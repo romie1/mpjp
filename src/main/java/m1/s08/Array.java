@@ -13,5 +13,8 @@ public class Array {
 //        value = array[12]; // exception
 
         System.out.println("Done");
+        
+        String[] sss = {"ciao", "bye"};
+        
     }
 }

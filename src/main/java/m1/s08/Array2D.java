@@ -13,6 +13,7 @@ public class Array2D {
         
         System.out.println(array2d);
         System.out.println(Arrays.toString(array2d));
+        //deepToString() stampa tutti gli elementi degli array multidimensionali
         System.out.println(Arrays.deepToString(array2d));
     }
 }

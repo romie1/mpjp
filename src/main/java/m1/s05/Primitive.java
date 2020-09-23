@@ -33,5 +33,6 @@ public class Primitive {
         if(!Double.isNaN(nan) || !Double.isInfinite(posInf) || Double.isFinite(negInf)) {
             System.out.println("Unexpected");
         }
+       
     }
 }
