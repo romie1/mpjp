@@ -1,6 +1,7 @@
 package m1ex;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -62,6 +63,13 @@ class S04Test {
 
         assertThat(actual, is(0L));
     }
+    
+    @Test
+    void positiveSqrt() {
+    	double actual = S04.sqrt(4);
+    	double expected = 2.0;
+    	assertThat(actual,  closeTo(expected, .0001));
+    }
 
     @Test
     void factorialFour() {
@@ -79,7 +87,8 @@ class S04Test {
 
     @Test
     void fibonacci() {
-        fail("Not yet implemented");
+        long actual = S04.fibonacci(5);
+        assertThat(actual, is(5L));
     }
 
     @Test

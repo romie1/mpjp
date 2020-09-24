@@ -8,19 +8,29 @@ public class S05 {
 	 * @return the input reversed
 	 */
 	public static String reverse(String s) {
-		// TODO
-		return "";
+		int len = s.length();
+
+		StringBuilder newString = new StringBuilder();
+		for (int i = len - 1; i >= 0; i--) {
+			newString.append(s.charAt(i));
+		}
+
+		return newString.toString();
 	}
 
 	/**
-	 * Check if the parameter is a palindrome
+	 * Check if the parameter is a palindrome abba
 	 * 
 	 * @param s
 	 * @return true if the parameter is a palindrome
 	 */
 	public static boolean isPalindrome(String s) {
-		// TODO
-		return false;
+		/*
+		 * for(int i = 0; i < s.length()/2; i++) { if(s.charAt(i) !=
+		 * s.charAt(s.length()-1-i)) { return false; } } return true;
+		 */
+		String reverseS = reverse(s);
+		return reverseS.contentEquals(s) ? true : false;
 	}
 
 	/**
@@ -30,10 +40,24 @@ public class S05 {
 	 * @return a string, same of input but without vowels
 	 */
 	public static String removeVowels(String s) {
-		// TODO
 
-	           
-		return "";
+		StringBuilder newString = new StringBuilder();
+		for (int i = 0; i < s.length(); i++) {
+			if (!checkVowels(s.charAt(i))) {
+				newString.append(s.charAt(i));
+			}
+		}
+		return newString.toString();
+	}
+
+	public static boolean checkVowels(char c) {
+		char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+		for (int i = 0; i < vowels.length; i++) {
+			if (c == vowels[i]) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -44,9 +68,22 @@ public class S05 {
 	 */
 	public static int bin2dec(String s) {
 		// [1][0][0][0][1]
-	    // 43_210
-	    // 2
-		return 0;
+		// 1001 --> 1*2^3 + 0*2^2+ 0*2^1 + 1*2^0 = 9
+		// 43_210
+		// 2
+		/*
+		 * int result = 0 for(int i = s.length()-1; i>= 0; i--){ result +=
+		 * (Integer.parseInt(String.valueOf(s.charAt(i))))*Math.pow(2,s.length()-1-i;
+		 */
+		int sum = 0;
+		int j = 0;
+		for (int i = s.length() - 1; i >= 0; i--) {
+			if (s.charAt(i) == '1') {
+				sum += Math.pow(2, j);
+			}
+			j++;
+		}
+		return sum;
 	}
 
 	/**
@@ -56,9 +93,11 @@ public class S05 {
 	 * @return a new array holding the same elements of input, in reversed order
 	 */
 	public static int[] reverse(int[] data) {
-		int[] result = new int[0];
-
-		// TODO
+		int n = data.length;
+		int[] result = new int[n];
+		for (int i = 0; i < n; i++) {
+			result[i] = data[n - 1 - i];
+		}
 
 		return result;
 	}
@@ -70,8 +109,11 @@ public class S05 {
 	 * @return the average
 	 */
 	public static double average(int[] data) {
-		// TODO
-		return 0;
+		double sum = 0;
+		for (int i = 0; i < data.length; i++) {
+			sum += data[i];
+		}
+		return sum / data.length;
 	}
 
 	/**
@@ -81,7 +123,12 @@ public class S05 {
 	 * @return the largest value
 	 */
 	public static int max(int[] data) {
-		// TODO
-		return Integer.MIN_VALUE;
+		int max = data[0];
+		for (int i = 1; i < data.length; i++) {
+			if (data[i] > max) {
+				max = data[i];
+			}
+		}
+		return max;
 	}
 }
