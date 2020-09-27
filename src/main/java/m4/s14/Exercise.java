@@ -63,12 +63,36 @@ public class Exercise {
 
 		return result;
 	}
+	
+	public List<Integer> singles2(int[] data) {
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		boolean flag = true;
+		
+		if (data == null) {
+			throw new NullPointerException("Parameter data is null");
+		}
+		
+		
+		for (int i = 0; i < data.length; i++) {
+			for(int j = 0; j < data.length; j++) {
+				if(data[i] == data[j] && i!=j) {
+					flag = false;
+				}
+			}
+			if (flag == true) {
+				result.add(data[i]);
+			}
+			flag = true;
+		}
+
+		return result;
+	}
 
 	/*
-	 * sorting e poi contrllo se è uguale a quello precedente
+	 * sorting e poi controllo se è uguale a quello precedente
 	 * 
 	 */
-	public List<Integer> singles2(int[] data) {
+	public List<Integer> singlesSort(int[] data) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 
 		if (data == null) {
@@ -100,22 +124,20 @@ public class Exercise {
 	}
 
 	/**
-	 * As above, but with a linear time algorithm
-	 * complessità O(n)
-	 * HashMap occupa memoria però O(1)
+	 * As above, but with a linear time algorithm complessità O(n) HashMap occupa
+	 * memoria però O(1)
+	 * 
 	 * @param data
 	 * @return
 	 */
 	public ArrayList<Integer> singlesLinear(int[] data) {
 		Map<Integer, Integer> myMap = new HashMap<Integer, Integer>();
 		ArrayList<Integer> result = new ArrayList<>();
-		
+
 		if (data == null) {
 			throw new NullPointerException("Parameter data is null");
 		}
-		
-		
-		
+
 		for (int key : data) {
 			if (myMap.containsKey(key)) {
 				Integer value = myMap.get(key);
@@ -126,7 +148,31 @@ public class Exercise {
 		}
 
 		for (var entry : myMap.entrySet()) {
-			if(entry.getValue() == 1) {
+			if (entry.getValue() == 1) {
+				result.add(entry.getKey());
+			}
+		}
+
+		return result;
+	}
+
+	public ArrayList<Integer> singlesLinear2(int[] data) {
+		Map<Integer, Integer> myMap = new HashMap<Integer, Integer>();
+		ArrayList<Integer> result = new ArrayList<>();
+
+		if (data == null) {
+			throw new NullPointerException("Parameter data is null");
+		}
+
+		for (int key : data) {
+			Integer value = myMap.putIfAbsent(key, 1);
+			if (value != null) {
+				myMap.put(key, value + 1);
+			}
+		}
+
+		for (var entry : myMap.entrySet()) {
+			if (entry.getValue() == 1) {
 				result.add(entry.getKey());
 			}
 		}
