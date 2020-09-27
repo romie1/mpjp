@@ -1,5 +1,8 @@
 package m4.s16;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Exercise {
     /**
      * Generate an array that contains only once each value (possibly duplicated) in
@@ -15,7 +18,13 @@ public class Exercise {
      * @return a stripped copy of the original array
      */
     public Integer[] singles(int[] left) {
-        // TODO
-        throw new UnsupportedOperationException("Not yet implemented");
+    	Set<Integer> result = new HashSet<Integer>();
+    	for(int value : left) {
+    		result.add(value);
+    	}
+
+    	return result.toArray(new Integer[result.size()]);
     }
+    
+    
 }

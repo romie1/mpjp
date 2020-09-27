@@ -14,11 +14,7 @@ public class S02 {
 	 */
 	public static double speed(double distance, double time) {
 		LOG.info(String.format("distance is %.3f and time is %.2f", distance, time));
-		try {
-			if (time < 0) throw new IllegalArgumentException("No negative values expected");
-		} catch (IllegalArgumentException e) {
-
-		}
+		if (time < 0) throw new IllegalArgumentException("No negative values expected");
 
 		return distance / time;
 	}

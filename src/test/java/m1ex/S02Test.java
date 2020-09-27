@@ -3,6 +3,7 @@ package m1ex;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Disabled;
@@ -25,7 +26,6 @@ class S02Test {
     }
 
     @Test
-    @Disabled
     void speedNegativeTime() {
         try {
             S02.speed(100, -1);
@@ -34,6 +34,14 @@ class S02Test {
             String message = iae.getMessage();
             assertThat(message, is("No negative values expected"));
         }
+    }
+    
+    //secondo modo di unit testing per eccezioni, junit 5
+    @Test
+    void speedNegativeTime2() {
+    	IllegalArgumentException exc = assertThrows(IllegalArgumentException.class,
+    			() -> S02.speed(100, -1));
+    			assertThat(exc.getMessage(), is("No negative values expected"));
     }
 
     @Test

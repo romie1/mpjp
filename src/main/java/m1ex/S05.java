@@ -50,8 +50,8 @@ public class S05 {
 		return newString.toString();
 	}
 
-	public static boolean checkVowels(char c) {
-		char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+	private static boolean checkVowels(char c) {
+		char[] vowels = { 'a', 'e', 'i', 'o', 'u', 'A','E', 'I','O','U'};
 		for (int i = 0; i < vowels.length; i++) {
 			if (c == vowels[i]) {
 				return true;
