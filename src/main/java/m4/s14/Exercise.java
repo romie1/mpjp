@@ -63,19 +63,18 @@ public class Exercise {
 
 		return result;
 	}
-	
+
 	public List<Integer> singles2(int[] data) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		boolean flag = true;
-		
+
 		if (data == null) {
 			throw new NullPointerException("Parameter data is null");
 		}
-		
-		
+
 		for (int i = 0; i < data.length; i++) {
-			for(int j = 0; j < data.length; j++) {
-				if(data[i] == data[j] && i!=j) {
+			for (int j = 0; j < data.length; j++) {
+				if (data[i] == data[j] && i != j) {
 					flag = false;
 				}
 			}
@@ -89,7 +88,7 @@ public class Exercise {
 	}
 
 	/*
-	 * sorting e poi controllo se è uguale a quello precedente
+	 * sorting e poi controllo se è uguale a quello precedente O(n lg n)
 	 * 
 	 */
 	public List<Integer> singlesSort(int[] data) {
@@ -99,7 +98,7 @@ public class Exercise {
 			throw new NullPointerException("Parameter data is null");
 		}
 
-		Arrays.sort(data); // O(n lg n)
+		Arrays.sort(data);
 		int prev = data[0];
 		int count = 1;
 		for (int i = 1; i < data.length; i++) {
